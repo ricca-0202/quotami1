@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citazioni & Audio</title>
+  <!-- Graffiti-style fonts aggiornati -->
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --acid-pink: #FF6EC7;
+      --acid-green: #39FF14;
+      --acid-yellow: #FFFC00;
+      --acid-blue: #00FFF7;
+      --contrast: rgba(255,255,255,0.9);
+      --pattern: url('acid-flower-pattern.png');
+    }
+    html { font-size: 18px; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Righteous', cursive;
+      letter-spacing: 0.05em;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    h1, h2, h3 {
+      font-family: 'Bangers', cursive;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 2rem; }
+    p, nav a, .btn-large {
+      font-size: 1.125rem;
+      letter-spacing: 0.04em;
+    }
+    section {
+      position: relative;
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      background: var(--contrast);
+      padding: 3rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      width: 75%;
+      max-width: 900px;
+      text-align: center;
+    }
+    .upload-form input,
+    .upload-form textarea,
+    .upload-form button {
+      width: 100%;
+      margin: 0.75rem 0;
+      font-size: 1.125rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 1.25rem;
+      background: linear-gradient(45deg, var(--acid-pink), var(--acid-yellow), var(--acid-green), var(--acid-blue));
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    blockquote {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: var(--acid-green) var(--pattern) center/cover;
+      border: none;
+      border-radius: 1.5rem;
+      color: #111;
+      text-align: left;
+    }
+    blockquote cite { font-size: 1rem; }
+    nav {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+    }
+    nav a {
+      margin-left: 1rem;
+      padding: 0.75rem;
+      text-decoration: none;
+      background: var(--acid-pink);
+      border-radius: 0.75rem;
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+    }
+    nav a:hover { background: var(--acid-yellow); }
+    .btn-large {
+      display: inline-block;
+      margin: 1.25rem;
+      padding: 1.25rem 2.5rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      background: var(--acid-blue);
+      color: #111;
+      border: none;
+      border-radius: 1rem;
+    }
+    .btn-large:hover { background: var(--acid-green); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#upload-quote">Carica Citazioni</a>
+    <a href="#library-quote">Libreria Citazioni</a>
+    <a href="#upload-audio">Carica Audio</a>
+    <a href="#library-audio">Libreria Audio</a>
+  </nav>
+  <!-- Home -->
+  <section id="home">
+    <div class="content">
+      <h1>Benvenuto su Citazioni & Audio</h1>
+      <p>Carica e esplora citazioni con autore e file audio mp3 in un'unica esperienza.</p>
+      <a class="btn-large" href="#upload-quote">Vai a Citazioni</a>
+      <a class="btn-large" href="#upload-audio">Vai ad Audio</a>
+    </div>
+  </section>
+  <!-- Upload Quote -->
+  <section id="upload-quote">
+    <div class="content">
+      <h2>Carica una nuova citazione</h2>
+      <form class="upload-form" action="#" method="get">
+        <input type="text" name="author" placeholder="Autore (Nome Cognome)">
+        <textarea name="quote" placeholder="Inserisci la citazione..."></textarea>
+        <button>Carica Citazione</button>
+      </form>
+    </div>
+  </section>
+  <!-- Library Quote -->
+  <section id="library-quote">
+    <div class="content">
+      <h2>Biblioteca delle Citazioni</h2>
+      <blockquote>
+        <p>“Una citazione di esempio apparirà qui.”</p>
+        <cite>— Autore Esempio</cite>
+      </blockquote>
+    </div>
+  </section>
+  <!-- Upload Audio -->
+  <section id="upload-audio">
+    <div class="content">
+      <h2>Carica un file audio</h2>
+      <form class="upload-form" action="#" method="get">
+        <input type="file" name="audio_file" accept="audio/mp3">
+        <button>Carica Audio</button>
+      </form>
+    </div>
+  </section>
+  <!-- Library Audio -->
+  <section id="library-audio">
+    <div class="content">
+      <h2>Biblioteca degli Audio</h2>
+      <audio controls src="example.mp3"></audio>
+    </div>
+  </section>
+</body>
+</html>
